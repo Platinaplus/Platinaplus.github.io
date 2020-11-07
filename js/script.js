@@ -1,64 +1,25 @@
 window.addEventListener("DOMContentLoaded", function () {
-  class GalleryItem {
-    constructor(src, alt, parentSelector, ...classes) {
-      this.src = src;
-      this.alt = alt;
-      this.classes = classes;
-      this.parent = document.querySelector(parentSelector);
-    }
+const btnShowMore = document.querySelector('.gallery__more');
+const hiddenElements = document.querySelectorAll('.gallery__item--hidden');
 
-    render() {
-      const element = document.createElement("div");
-      if (this.classes.length === 0) {
-        this.element = "gallery__item";
-        element.classList.add(this.element);
-      } else {
-        this.classes.forEach((className) => element.classList.add(className));
-      }
+btnShowMore.addEventListener('click', function(e){
+  e.preventDefault();
 
-      element.innerHTML = `
-        <img src=${this.src} alt = ${this.alt}>
-        <a class="gallery__link"></a>
-        `;
-
-      this.parent.append(element);
-    }
-  }
-
-  const btnShow = document.querySelector(".gallery__more");
-  
-  
-  btnShow.addEventListener("click", function () {
-    const galleryMore = document.querySelector('.gallery__more');
-    new GalleryItem(
-      "images/add.jpg",
-      "серфинг",
-      ".gallery__photo",
-      "mix",
-      "category-b",
-      "gallery__item",
-      "gallery__item--add"
-    ).render();
-    new GalleryItem(
-      "images/add2.jpg",
-      "серфинг",
-      ".gallery__photo",
-      "mix",
-      "category-a",
-      "gallery__item",
-      "gallery__item--add"
-    ).render();
-    new GalleryItem(
-      "images/add1.jpg",
-      "серфинг",
-      ".gallery__photo",
-      "mix",
-      "category-c",
-      "gallery__item",
-      "gallery__item--add"
-    ).render();
-
-  }, {once: true});
-
-
+  if (btnShowMore.dataset.option == 'hidden') {
+    hiddenElements.forEach(element => {
+    element.style.display = 'block';
+  })
+  btnShowMore.dataset.option = 'visible';
+  btnShowMore.innerText = 'Скрыть';
+}
+  else if (btnShowMore.dataset.option == 'visible') {
+    hiddenElements.forEach(element => {
+      element.style.display = 'none';
+    });
+    btnShowMore.dataset.option = 'hidden';
+    btnShowMore.innerText = 'Показать еще';
+}
 });
+});
+
+

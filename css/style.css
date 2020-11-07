@@ -109,7 +109,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  max-height: 100vh;
+  height: 100vh;
 }
 
 .header::before {
@@ -436,11 +436,21 @@ ul.menu__list {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 10px;
+  column-gap: 40px;
 }
 
 .gallery__item {
   margin-bottom: 40px;
   position: relative;
+}
+
+.gallery__item img{
+  object-fit: cover;
+  height: 100%;
+}
+
+.gallery__item--hidden{
+  display: none;
 }
 
 .gallery__link {
