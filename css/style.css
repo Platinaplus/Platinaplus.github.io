@@ -131,9 +131,12 @@ body {
   position: fixed;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, #01353E 0%, rgba(51, 51, 51, 0.3) 100%);
   z-index: 9;
   height: 80px;
+}
+
+.header__top.scroll {
+  background: linear-gradient(180deg, #01353E 0%, rgba(51, 51, 51, 0.3) 100%);
 }
 
 .header__top-inner {
@@ -371,11 +374,9 @@ ul.menu__list {
 .action {
   background-color: #fff;
   background-position: top right;
-  background-size: 50% 100%;
+  background-size: 50%;
   background-repeat: no-repeat;
   padding: 200px 0 119px;
-  margin-bottom: 200px;
-
 }
 
 .action__inner {
@@ -437,6 +438,12 @@ ul.menu__list {
   justify-content: space-between;
   margin-bottom: 10px;
   column-gap: 40px;
+  overflow: hidden;
+  height: 640px;
+}
+
+.gallery__photo.add {
+  height: auto;
 }
 
 .gallery__item {
@@ -444,13 +451,17 @@ ul.menu__list {
   position: relative;
 }
 
-.gallery__item img{
+.gallery__item img {
   object-fit: cover;
   height: 100%;
 }
 
-.gallery__item--hidden{
+.gallery__item--hidden {
   display: none;
+}
+
+.show {
+  display: block;
 }
 
 .gallery__link {
@@ -540,7 +551,7 @@ ul.menu__list {
   display: flex;
   justify-content: space-between;
   max-width: 696px;
-  margin: 0 auto 200px;
+  margin: 0 auto;
 }
 
 .gallery__numbers-item {
@@ -561,7 +572,8 @@ ul.menu__list {
 }
 
 .blog {
-  margin-bottom: 200px;
+  padding-top: 200px;
+
 }
 
 .blog__title {
@@ -638,6 +650,7 @@ ul.menu__list {
 
 .team {
   margin-bottom: 204px;
+  padding-top: 200px;
 }
 
 .team__title {
@@ -733,7 +746,7 @@ ul.menu__list {
   background-position: center;
   background-size: cover;
   position: relative;
-  margin: 200px auto;
+  margin: 200px auto 0;
 }
 
 .map::after {
@@ -750,6 +763,7 @@ ul.menu__list {
 
 .form {
   margin-bottom: 200px;
+  padding-top: 200px;
 }
 
 .form__title {
@@ -878,8 +892,10 @@ ul.menu__list {
   .about,
   .order,
   .team,
-  .price {
-    padding: 10px 0 75px;
+  .price,
+  .blog,
+  .form {
+    padding: 70px 10px 35px;
   }
 
   .title {
@@ -887,12 +903,8 @@ ul.menu__list {
     padding: 0 10px;
   }
 
-  .about__title {
-    margin-top: 100px;
-  }
-
   .blog {
-    padding: 0 0 100px;
+    /* padding: 0 0 100px; */
     margin-bottom: 100px;
   }
 
@@ -958,12 +970,15 @@ ul.menu__list {
   }
 
   .gallery__photo {
-    justify-content: flex-start;
+    justify-content: space-around;
+    height: 600px;
   }
 
   .gallery__item {
     margin-bottom: 20px;
-    margin-left: 20px;
+  }
+  .gallery__filter{
+    padding-left: 62px;
   }
 
   .blog {
@@ -1095,7 +1110,7 @@ ul.menu__list {
 
   .action__title {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin: 0 auto 40px;
   }
 
   .action__text p {
@@ -1511,6 +1526,7 @@ ul.menu__list {
 
   .price__item {
     height: 450px;
+    width: 100%;
   }
 
 
